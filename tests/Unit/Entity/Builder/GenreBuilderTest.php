@@ -70,19 +70,19 @@ final class GenreBuilderTest extends TestCase
         $this->builder->createFromArray(\compact('id', 'name'));
     }
 
-    public function testCreateFromArrayWithoutIdWillThrowError(): void
+    public function testCreateFromArrayWithoutIdWillThrowTypeError(): void
     {
         $name = \uniqid('name', true);
 
-        $this->expectException(\Error::class);
+        $this->expectException(\TypeError::class);
         $this->builder->createFromArray(\compact('name'));
     }
 
-    public function testCreateFromArrayWithoutNameWillThrowError(): void
+    public function testCreateFromArrayWithoutNameWillThrowTypeError(): void
     {
         $id = \random_int(1, 100);
 
-        $this->expectException(\Error::class);
+        $this->expectException(\TypeError::class);
         $this->builder->createFromArray(\compact('id'));
     }
 }

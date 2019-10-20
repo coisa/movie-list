@@ -30,8 +30,8 @@ class GenreBuilder implements EntityBuilderInterface
     public function createFromArray(array $result): Genre
     {
         return new Genre(
-            $result['id'],
-            $result['name']
+            $result['id'] ?? null,
+            $result['name'] ?? null
         );
     }
 }
