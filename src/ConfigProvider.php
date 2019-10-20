@@ -18,9 +18,17 @@ namespace CoiSA\MovieList;
 use CoiSA\MovieList\Entity\Builder\GenreBuilder;
 use CoiSA\MovieList\Entity\Builder\MovieBuilder;
 use CoiSA\MovieList\Entity\Builder\MovieBuilderFactory;
+use CoiSA\MovieList\Http\Cache\RequestResultCache;
+use CoiSA\MovieList\Http\Cache\RequestResultCacheFactory;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilder;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilderFactory;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilderInterface;
+use CoiSA\MovieList\Repository\GenreRepository;
+use CoiSA\MovieList\Repository\GenreRepositoryFactory;
+use CoiSA\MovieList\Repository\GenreRepositoryInterface;
+use CoiSA\MovieList\Repository\MovieRepository;
+use CoiSA\MovieList\Repository\MovieRepositoryFactory;
+use CoiSA\MovieList\Repository\MovieRepositoryInterface;
 
 /**
  * Class ConfigProvider
@@ -58,6 +66,8 @@ final class ConfigProvider
     {
         return [
             TmdbRequestBuilderInterface::class => TmdbRequestBuilder::class,
+            MovieRepositoryInterface::class    => MovieRepository::class,
+            GenreRepositoryInterface::class    => GenreRepository::class,
         ];
     }
 
@@ -77,6 +87,9 @@ final class ConfigProvider
     public function getFactories(): array
     {
         return [
+            RequestResultCache::class   => RequestResultCacheFactory::class,
+            MovieRepository::class      => MovieRepositoryFactory::class,
+            GenreRepository::class      => GenreRepositoryFactory::class,
             TmdbRequestBuilder::class   => TmdbRequestBuilderFactory::class,
             MovieBuilder::class         => MovieBuilderFactory::class,
         ];
