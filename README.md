@@ -31,6 +31,7 @@ so any implementation can be easily intercepted or replaced via container depend
 - [HTTP Request Client](https://www.php-fig.org/psr/psr-18/) are being provided through [Symfony HTTP Client Component](https://symfony.com/components/HttpClient).
 - The cache layer are beeing provided through [PSR-16](https://www.php-fig.org/psr/psr-16/) via Filesystem Adapter of [PHP-Cache](http://php-cache.com/en/latest/) implementation.
 - Log are being managed by [Monolog](https://github.com/Seldaek/monolog) through my very own [Monolog Factories](https://github.com/coisa/monolog) library.
+- For rendering templates the [PHP League Plates](https://platesphp.com/) was used.
 
 ## Build & Deploy
 
