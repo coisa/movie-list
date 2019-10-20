@@ -15,6 +15,9 @@ declare(strict_types=1);
 
 namespace CoiSA\MovieList;
 
+use CoiSA\MovieList\Entity\Builder\GenreBuilder;
+use CoiSA\MovieList\Entity\Builder\MovieBuilder;
+use CoiSA\MovieList\Entity\Builder\MovieBuilderFactory;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilder;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilderFactory;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilderInterface;
@@ -43,6 +46,7 @@ final class ConfigProvider
     {
         return [
             'aliases'    => $this->getAliases(),
+            'invokables' => $this->getInvokables(),
             'factories'  => $this->getFactories(),
         ];
     }
@@ -60,10 +64,21 @@ final class ConfigProvider
     /**
      * @return array
      */
+    public function getInvokables(): array
+    {
+        return [
+            GenreBuilder::class => GenreBuilder::class,
+        ];
+    }
+
+    /**
+     * @return array
+     */
     public function getFactories(): array
     {
         return [
             TmdbRequestBuilder::class   => TmdbRequestBuilderFactory::class,
+            MovieBuilder::class         => MovieBuilderFactory::class,
         ];
     }
 }
