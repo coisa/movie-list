@@ -1,0 +1,14 @@
+*.xml
+.git*
+.idea/
+vendor/
+.composer/
+.dockerignore
+.editorconfig
+.env
+.php*
+composer.phar
+docker-compose.override.yml
+docker-compose.yml
+Dockerfile
+README.md

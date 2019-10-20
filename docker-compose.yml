@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: ${APP_DIR:-/app}
+        APP_VERSION: ${APP_VERSION:-latest}
+    image: coisa/movie-list:${APP_VERSION:-latest}
+    env_file: .env
+    user: root
+
+  composer:
+    image: coisa/movie-list:${APP_VERSION:-latest}
+
+  phpunit:
+    depends_on:
+      - composer
+    image: coisa/movie-list:${APP_VERSION:-latest}
+    command: test
