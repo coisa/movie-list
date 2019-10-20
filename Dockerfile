@@ -27,6 +27,7 @@ WORKDIR ${APP_DIR}
 USER app
 
 COPY --chown=app . ${APP_DIR}/
+VOLUME ${APP_DIR}/data/cache
 
 RUN make install
 
