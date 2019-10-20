@@ -1,0 +1,5 @@
+<?php $this->layout('layout::default', ['title' => \sprintf('%d %s', $status, $reason)]) ?>
+
+<h1>Oops!</h1>
+<h2>This is awkward.</h2>
+<p>We encountered a <?php echo $this->e($status)?> <?php echo $this->e($reason)?> error.</p>
