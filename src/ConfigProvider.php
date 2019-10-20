@@ -23,6 +23,12 @@ use CoiSA\MovieList\Http\Cache\RequestResultCacheFactory;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilder;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilderFactory;
 use CoiSA\MovieList\Http\Message\TmdbRequestBuilderInterface;
+use CoiSA\MovieList\Http\RequestHandler\DetailRequestHandler;
+use CoiSA\MovieList\Http\RequestHandler\DetailRequestHandlerFactory;
+use CoiSA\MovieList\Http\RequestHandler\IndexRequestHandler;
+use CoiSA\MovieList\Http\RequestHandler\IndexRequestHandlerFactory;
+use CoiSA\MovieList\Http\RequestHandler\SearchRequestHandler;
+use CoiSA\MovieList\Http\RequestHandler\SearchRequestHandlerFactory;
 use CoiSA\MovieList\Repository\GenreRepository;
 use CoiSA\MovieList\Repository\GenreRepositoryFactory;
 use CoiSA\MovieList\Repository\GenreRepositoryInterface;
@@ -87,6 +93,9 @@ final class ConfigProvider
     public function getFactories(): array
     {
         return [
+            IndexRequestHandler::class  => IndexRequestHandlerFactory::class,
+            DetailRequestHandler::class => DetailRequestHandlerFactory::class,
+            SearchRequestHandler::class => SearchRequestHandlerFactory::class,
             RequestResultCache::class   => RequestResultCacheFactory::class,
             MovieRepository::class      => MovieRepositoryFactory::class,
             GenreRepository::class      => GenreRepositoryFactory::class,
