@@ -1,0 +1,11 @@
+<?php $this->layout('layout::default', ['title' => 'Upcoming Movies']); ?>
+
+<h1>Upcoming Movies</h1>
+
+<div class="container">
+    <div class="row">
+        <?php foreach ($movies as $movie) {
+            echo $this->fetch('partials::movie-card', compact('movie'));
+        } ?>
+    </div>
+</div>

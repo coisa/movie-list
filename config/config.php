@@ -20,7 +20,7 @@ use Zend\ConfigAggregator\PhpFileProvider;
 // To enable or disable caching, set the `ConfigAggregator::ENABLE_CACHE` boolean in
 // `config/autoload/local.php`.
 $cacheConfig = [
-    ConfigAggregator::ENABLE_CACHE => \getenv('CONFIG_CACHE_ENABLED'),
+    ConfigAggregator::ENABLE_CACHE => false,
     'config_cache_path'            => 'data/cache/config-cache.php',
 ];
 
